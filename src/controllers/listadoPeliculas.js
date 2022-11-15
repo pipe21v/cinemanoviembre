@@ -26,41 +26,65 @@ let peliculas=[
         poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
     },
     {
-        nombre: "Wakanda forever",
+        nombre: "Sonrie",
         duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemafelipe-abcbf.appspot.com/o/ba08a64d79b2-smile_cineco_2-poster_480x670.jpg?alt=media&token=e6244463-4560-42b1-8403-59b797737848"
     },
     {
-        nombre: "Wakanda forever",
+        nombre: "Avatar 2",
         duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemafelipe-abcbf.appspot.com/o/9fe9cf28c779-480x670.png?alt=media&token=f84f60d5-7917-45a3-84cc-31907646591f"
     },
     {
-        nombre: "Wakanda forever",
+        nombre: "Amenaza Explosiva",
         duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemafelipe-abcbf.appspot.com/o/6893d3af31b3-hh_poster-dsktp_480x670.jpg?alt=media&token=a0a09071-3565-4c55-8527-488b958f5ac4"
     },
     {
-        nombre: "Wakanda forever",
+        nombre: "Gato con Botas",
         duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemafelipe-abcbf.appspot.com/o/6556104b4e3a-480x670.png?alt=media&token=b2e96ae2-8444-4056-a606-5512613e3133"
     },
     {
-        nombre: "Wakanda forever",
+        nombre: "La noche del Apocalipsis",
         duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemafelipe-abcbf.appspot.com/o/17b1b97755f4-poster_480x670.png?alt=media&token=d142dc65-ae63-4d0a-9ed4-cf8fbe585d6a"
     }
 ]
 
-let fila=document.getElementById("fila")
+//creamos una referencia al espacio HTML donde queremos
+//hacer el render(PINTAR ETIQUETAS)
+let etiquetaFila=document.getElementById("fila")
 
+//SI YA TENGO DATOS QUE NORMALMENTE LLEGAN AL FRONT
+//COMO UN ARREGLO DE OBJETOS DEBEMOS RECORRER Y DEPURAR
+//DICHA INFORMACION 
 peliculas.forEach(function(pelicula){
-    console.log(pelicula.poster)
+    // para pintar la informacion de cada pelicula 
+    //debemos aplicar una tecnica conocida como traversing
+    //TRAVERSING=crear etiquetas de HTML desde Js
+    let columna=document.createElement("div")
+    columna.classList.add("col")
 
-    let foto=document.createElement("img")
-    foto.src=pelicula.poster
-    foto.classList.add("img-fluid","w-100")
+    let tarjeta=document.createElement("div")
+    tarjeta.classList.add("card","h-100","shadow")
 
-    fila.appendChild(foto)
+    let poster=document.createElement("img")
+    poster.classList.add("img-fluid","w-100")
+    poster.src=pelicula.poster
 
+    let nombre=document.createElement("h3")
+    nombre.classList.add("text-center","fw-bold")
+    nombre.textContent=pelicula.nombre
+
+    let duracion=document.createElement("h5")
+    duracion.classList.add("text-start")
+    duracion.textContent= "Duracion: "+pelicula.duracion+" Min"
+
+    //PADRES E HIJOS
+    etiquetaFila.appendChild(columna)
+    columna.appendChild(tarjeta)
+    tarjeta.appendChild(poster)
+    tarjeta.appendChild(nombre)
+    tarjeta.appendChild(duracion)
 })
