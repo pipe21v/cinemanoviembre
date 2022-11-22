@@ -22,7 +22,7 @@ console.log(numeros[2])
 //OBJETOS SON VARIABLES ESPECIALES
 //QUE PERMITEN ALMACENAR VARIOS DATOS DE DISTINTO TIPO
 //EN UNA SOLA VARIABLE
-let edad=33
+//let edad=33
 let persona={
     nombre:"Juan José",  
     edad:33,
@@ -32,6 +32,14 @@ let persona={
 console.log(persona)
 console.log(persona.nombre)
 
+let nombre="Juan comodoro";
+let edad=50;
+nombre="Juan Andres";
+edad=edad;
+nombre=nombre+" pumarejo";
+
+console.log(nombre);
 
 
-
+let etiquetanombre=document.getElementById(titulo)
+etiquetanombre="gane"
